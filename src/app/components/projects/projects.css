@@ -1,0 +1,210 @@
+.projects-section {
+    padding: 0 20px;
+}
+
+
+
+.projects-grid {
+    padding: 100px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.project-card {
+    flex: 0 0 calc(33.33% - 20px); 
+    max-width: calc(33.33% - 20px);
+    background-color: var(--card-bg-color, #00000041); 
+    backdrop-filter: blur(24px);
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    display: flex; 
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+  box-shadow: 0 4px 24px rgba(255, 0, 122, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-image-wrapper {
+    width: 100%;
+    height: 200px; /* Altura fija para la imagen, si quieres consistencia */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d0d0d; /* Fondo si la imagen no cubre todo */
+}
+
+.project-image-wrapper img {
+    width: 100%; /* La imagen se ajusta al ancho del contenedor */
+    height: 100%; /* La imagen se ajusta a la altura del contenedor */
+    object-fit: cover; /* Recorta la imagen para cubrir el área sin distorsionarla */
+    transition: transform 0.3s ease; /* Transición para el zoom en hover */
+}
+
+.project-card:hover .project-image-wrapper img {
+    transform: scale(1.05); /* Ligerísimo zoom en la imagen al hacer hover en la tarjeta */
+}
+
+.project-content {
+    padding: 25px; /* Más padding interno para el contenido */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que este contenido crezca para empujar los enlaces hacia abajo */
+}
+
+.project-title {
+    font-size: 1.8rem;
+    color: var(--accent-color); /* Color de acento para los títulos de proyecto */
+    margin-bottom: 10px;
+    text-align: left; /* Alineación a la izquierda */
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--text-color-secondary, #b0b0b0); /* Color de texto más suave */
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Permite que la descripción crezca y empuje los enlaces hacia abajo */
+    text-align: left;
+}
+
+.project-links {
+    margin-top: 15px; /* Espacio entre la descripción y los enlaces */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los enlaces pasen a la siguiente línea en pantallas pequeñas */
+    gap: 10px; /* Espacio entre los enlaces */
+    justify-content: flex-start; /* Alinea los enlaces a la izquierda */
+}
+
+.project-link {
+    display: inline-flex; /* Para alinear icono y texto */
+    align-items: center;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.project-link i {
+    margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+.project-link.primary-link {
+   background: linear-gradient(90deg, #ff007a, #8e2de2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.project-link.primary-link:hover {
+  transform: scale(1.05);
+}
+
+.project-link.secondary-link {
+  position: relative;
+  padding: 0.6rem 1.4rem;
+  background: transparent;
+  color: #ccc;
+  border: none;
+  font-weight: 500;
+  border-radius: 8px;
+  z-index: 0;
+  cursor: pointer;
+}
+
+.project-link.secondary-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px; /* Grosor del borde */
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff007a, #8e2de2); /* El gradiente del borde */
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.project-link.secondary-link:hover {
+  color: #fff;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 992px) { /* Tabletas grandes y portátiles */
+    .project-card {
+        flex: 0 0 calc(50% - 15px); /* 2 columnas */
+        max-width: calc(50% - 15px);
+    }
+}
+
+@media (max-width: 768px) { /* Tabletas y móviles grandes */
+    .projects-section {
+        padding: 40px 15px; /* Menos padding en los laterales */
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .project-card {
+        flex: 0 0 calc(100% - 10px); /* 1 columna */
+        max-width: calc(100% - 10px);
+    }
+
+    .project-image-wrapper {
+        height: 180px; /* Ajuste de altura para imágenes en móvil */
+    }
+
+    .project-title {
+        font-size: 1.6rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) { /* Móviles pequeños */
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    .project-links {
+        flex-direction: column; /* Botones apilados en móviles muy pequeños */
+    }
+}
+
+/* Definición de Variables CSS (añadir a tu :root o donde tengas tus variables) */
+/* Ejemplo de cómo definir las variables, ajusta los colores a tu gusto */
+:root {
+    --bg-color: #0a0a0a;
+    --card-bg-color: #1a1a1a;
+    --text-color-light: #f0f0f0;
+    --text-color-secondary: #b0b0b0;
+    --accent-color: #007bff; /* Tu color de acento principal */
+    --accent-color-dark: #0056b3; /* Un tono más oscuro para el hover */
+    --button-text-color: #fff; /* Color del texto para botones primarios */
+    --secondary-button-bg: #333;
+    --secondary-button-bg-hover: #444;
+    --secondary-button-border: #555;
+}

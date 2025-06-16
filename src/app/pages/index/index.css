@@ -1,0 +1,43 @@
+.container{
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: row;
+}
+.section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+.lenguaje{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+}
+.lang-button{
+  cursor: pointer;
+  color: white;
+  text-shadow:
+    1px 0 red,
+   -1px 0 cyan;
+  padding: 5px;
+  margin-inline: 2px;
+}
+.contenedores{
+  flex: 1;
+}
+.selected{
+  background-color: white;
+  color: black;
+  outline: 1px solid white;
+}
+.lang-button:hover{
+  outline: 1px solid white;
+}
+
+

@@ -1,0 +1,219 @@
+/* --- Variables CSS Generales (ajusta a tu gusto) --- */
+:root {
+    --bg-color: #0a0a0a; /* Fondo muy oscuro */
+    --card-bg-color: #1a1a1a; /* Fondo de tarjetas */
+    --text-color-light: #f0f0f0; /* Texto principal claro */
+    --text-color-secondary: #b0b0b0; /* Texto secundario más suave */
+    --accent-color: #007bff; /* Tu color de acento principal (ej. azul eléctrico) */
+    --accent-color-dark: #0056b3; /* Un tono más oscuro del acento para hover */
+    --glitch-color-1: #00ff00; /* Verde neón para el glitch */
+    --glitch-color-2: #ff00ff; /* Magenta neón para el glitch */
+    --glitch-speed: 0.8s; /* Velocidad de la animación del glitch */
+    --glitch-amount-shadow: 2px; /* Cantidad de desplazamiento para las sombras del glitch */
+    --transition-speed: 0.3s; /* Velocidad general de transiciones */
+}
+.scroll-section {
+  height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+body {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+/* --- Estilos Globales (asegúrate de que estén en tu CSS principal) --- */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace; /* Considera una fuente mono para el look techy */
+    background-color: var(--bg-color);
+    color: var(--text-color-light);
+    overflow-x: hidden; /* Evita scroll horizontal */
+    scroll-behavior: smooth;
+}
+
+/* Contenedor principal del contenido */
+.content-body {
+    margin: 0 auto; /* Centra el contenido en la página */
+}
+
+.loading {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--text-color-secondary);
+    padding: 50px;
+}
+
+/* --- Título Principal con Efecto Glitch (¡Modificado aquí!) --- */
+.hero-section {
+    padding: 200px 20px 100px; /* Más padding para la sección principal */
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+.main-title {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--text-color-light); /* Color base del texto */
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 4px;
+    user-select: none;
+}
+
+
+
+/* --- Títulos de Sección (About Me, Skills, Projects) --- */
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--text-color-light);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px; /* Espacio para la línea */
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Línea de Glitch debajo de los títulos de sección (se mantiene igual) */
+.section-title .glitch-line {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: var(--accent-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.glitch-effect{
+     text-shadow:
+    4px 0 red,
+   -4px 0 cyan,
+    0 0 2px white;
+    animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+    2%, 64% {
+        transform: translate(2px,0) skew(0deg);
+    }
+    4%, 60% {
+        transform: translate(-2px,0) skew(0deg);
+    }
+    62% {
+        transform: translate(0,0) skew(5deg);
+    }
+}
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+}
+.glitch-effect::before{
+    animation: glinchTop 1s linear infinite;
+    clip-path: polygon(0 0,100%,33%);
+    -webkit-clip-path: polygon(0 0,100%,0,100% 33%, 0 33%);
+}
+@keyframes glinchTop {
+    2%, 64% {
+        transform: translate(2px,-2px);
+    }
+    4%, 60% {
+        transform: translate(-2px,2px);
+    }
+    62% {
+        transform: translate(13px,-1px) skew(-13deg);
+    }
+}
+.glitch-effect::after{
+    animation: glinchBottom 1.5s linear infinite;
+    clip-path: polygon(0 67%,100% 67%,100% 100% , 0 100%);
+    -webkit-clip-path: polygon(0 67%,100% 67%,100% 100% , 0 100%);
+}
+@keyframes glinchBottom {
+    2%, 64% {
+        transform: translate(-2px,0);
+    }
+    4%, 60% {
+        transform: translate(-2px,0);
+    }
+    62% {
+        transform: translate(-22px,5px) skew(21deg);
+    }
+}
+/* --- Sección "About Me" --- */
+.about-me-section {
+    padding: 150px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    text-align: center;
+}
+
+.skills-section {
+    padding: 100px 20px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    color: var(--text-color-secondary);
+    text-align: center;
+}
+
+/* --- Responsive Design (Ajustes de Media Queries) --- */
+@media (max-width: 992px) {
+    .main-title {
+        font-size: 4.5rem;
+    }
+    .section-title {
+        font-size: 2.4rem;
+    }
+    .about-me-section {
+        font-size: 1rem;
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+    }
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    .about-me-section {
+        padding: 40px 15px;
+        text-align: left;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+    .section-title {
+        font-size: 1.7rem;
+        margin-bottom: 30px;
+    }
+    .section-title .glitch-line {
+        width: 60px;
+        height: 3px;
+    }
+    .about-me-section {
+        padding: 30px 10px;
+    }
+}

@@ -1,0 +1,17 @@
+<nav class="sections">
+    @if (_portafolioService.sections) {
+      @for (section of _portafolioService.sections; track $index) {
+        <span (click)="goToSection(section.slug)"   class="section-icon" >
+          <mat-icon [class]="section.slug == _portafolioService.currentSection ? 'maticon selected' : 'maticon'" [matTooltip]="section.title" >{{section.icon }}</mat-icon>
+        </span>
+      }
+    }
+    @if (_portafolioService.socialMedia) {
+      @for (socialMedia of _portafolioService.socialMedia; track $index) {
+          <a  [matTooltip]="socialMedia.platform" [matTooltipPosition]="'right'"  class="social-media"  
+                href="{{ socialMedia.url }}" target="_blank">
+                <img [src]="'icon/'+socialMedia.icon+'.svg'" [alt]="socialMedia.platform" />
+        </a>
+      }
+    }
+</nav>

@@ -1,0 +1,30 @@
+
+<div class="container">
+  <div class="section">
+    <span style="text-align: center;">Language</span>
+    <div class="lenguaje">
+      <span [class]="lang === 'en' ? 'lang-button selected' : 'lang-button'" (click)="changeLanguage('en')">EN</span>
+      <span [class]="lang === 'es' ? 'lang-button selected' : 'lang-button'" (click)="changeLanguage('es')">ES</span>
+    </div>
+    <app-sections></app-sections>
+  </div>
+
+  <div class="contenedores">
+    <div [@fade] *ngIf="portafolioService.currentSection === 'home'">
+      <app-home [lang]="lang" ></app-home>
+    </div>
+    
+    <div [@fade] *ngIf="portafolioService.currentSection === 'projects'">
+      <app-projects [lang]="lang"></app-projects>
+    </div>
+    
+    <div [@fade] *ngIf="portafolioService.currentSection === 'work-experiences'">
+      <app-work-experience [lang]="lang"></app-work-experience>
+    </div>
+    
+    <div [@fade] *ngIf="portafolioService.currentSection === 'services'">
+      <app-services [lang]="lang"></app-services>
+    </div>
+  </div>
+
+</div>

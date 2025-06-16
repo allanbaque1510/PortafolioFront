@@ -1,0 +1,45 @@
+<div class="content-body">
+        <h2 class="section-title">{{lang === 'en' ? 'Work Experience' : 'Experiencia Laboral'}}</h2> 
+
+    <div class="contenido">
+
+        @for (job of data.workExperience; track $index) {
+            <div class="job-card">
+                <div class="header">
+                    <img [src]="job.company_logo" alt="{{ job.company_name }} logo" class="company-logo">
+                    <div>
+                        <h2>{{ job.position }}</h2>
+                        <h3>{{ job.company_name }} - {{ job.company_location }}</h3>
+                        <p>
+                            <strong>{{ job.start_date }}</strong>
+                            -
+                            <strong>{{ job.is_current ? 'Actualidad' : job.end_date }}</strong>
+                        </p>
+                        
+                        <!-- <a *ngIf="job.company_website" [href]="job.company_website" target="_blank">Sitio Web</a> -->
+                    </div>
+                </div>
+                
+                <p class="description">{{ job.description }}</p>
+                <p class="achievements"><strong>{{lang === 'es' ? 'Logros' : 'Achievements'}}:</strong> {{ job.achievements }}</p>
+                
+                <div class="tasks">
+                    <h4>{{lang === 'es' ? 'Tareas principales' : 'Main Tasks'}}:</h4>
+                    <ul>
+                        @for (task of job.tasks; track $index) {
+                            <li>
+                                <strong>{{ task.title }}:</strong> {{ task.description }}
+                            </li>
+                        }
+                    </ul>
+                </div>
+                
+                <section class="skills-section">
+                    <h3 class="skills-title" style="text-align: center;">{{lang === 'es' ? 'Tecnologias' : 'Tech Stack'}}</h3>
+                    <app-skills [skills]="job.skills"></app-skills>
+                </section>
+                
+            </div>
+        }
+    </div>
+</div>

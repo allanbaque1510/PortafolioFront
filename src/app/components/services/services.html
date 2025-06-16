@@ -1,0 +1,28 @@
+
+    <div class="content-body">
+        <h2 class="section-title">{{lang === 'en' ? 'Services' : 'Servicios'}}</h2> 
+        <div class="contenido">
+            @for (service of data.services; track $index) {
+                
+                <div  class="service-card">
+                    <img [src]="service.image" [alt]="service.title" class="service-image" />
+                    <div class="service-content">
+                        <h3 class="service-title">
+                            <i [class]="service.icon"></i> {{ service.title }}
+                        </h3>
+                        <p class="service-description">{{ service.description }}</p>
+                        @if(service.url != null){
+                            <a  [href]="service.url" target="_blank" class="service-link">
+                                Más información
+                            </a>
+                        }
+                        
+                        <div class="service-meta">
+                            <small>Actualizado: {{ service.updated_at | date: 'dd/MM/yyyy'  }}</small>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    

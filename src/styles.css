@@ -1,1 +1,105 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url("background.png");
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.content-body{
+    height: 100vh;
+    overflow: auto;
+}
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* --- Personalización del Scrollbar para .content-body --- */
+
+/* Para navegadores basados en WebKit (Chrome, Safari, Edge, Opera) */
+.content-body::-webkit-scrollbar {
+    width: 10px; /* Ancho de la barra de scroll vertical */
+    height: 10px; /* Altura de la barra de scroll horizontal */
+}
+
+/* El fondo de la barra de scroll (track) */
+.content-body::-webkit-scrollbar-track {
+    background: #181818; /* Un tono de gris muy oscuro, casi negro */
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
+}
+
+/* El "pulgar" o "handle" de la barra de scroll */
+.content-body::-webkit-scrollbar-thumb {
+    /* Color inicial del pulgar: un azul cian oscuro o un gris azulado */
+    background-color: #007bff; /* Un azul estándar de acento, puedes usar var(--accent-color) */
+    /* Opcional: Un degradado sutil solo con azules/grises si quieres: */
+    /* background: linear-gradient(to bottom, #007bff, #0056b3); */
+    border-radius: 5px;
+    border: 2px solid #181818; /* Borde oscuro para contraste */
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5); /* Sombra suave para que destaque */
+    transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Transición para cambios de color */
+}
+
+/* Estilo del pulgar al pasar el ratón por encima (efecto glitch sutil en azul) */
+.content-body::-webkit-scrollbar-thumb:hover {
+    animation: scrollbar-glitch-hover 0.5s infinite alternate; /* Animación de parpadeo */
+    box-shadow: 0 0 8px #00e0ff, 0 0 12px #00aaff; /* Sombra con tonos azules/cian */
+}
+
+/* Estilo del pulgar al ser arrastrado (efecto glitch más pronunciado en azul) */
+.content-body::-webkit-scrollbar-thumb:active {
+    animation: scrollbar-glitch-active 0.3s infinite alternate; /* Animación más rápida */
+    box-shadow: 0 0 10px #00e0ff, 0 0 15px #00aaff; /* Sombra más fuerte y tonos azules/cian */
+}
+
+/* --- Keyframes para el efecto Glitch en el Scrollbar (ahora solo con azules/grises) --- */
+
+@keyframes scrollbar-glitch-hover {
+    0% { background-color: #007bff; } /* Azul inicial */
+    50% { background-color: #00e0ff; } /* Azul neón (tu `--accent-color`) */
+    100% { background-color: #007bff; } /* Vuelve al azul inicial */
+}
+
+@keyframes scrollbar-glitch-active {
+    0% { background-color: #00e0ff; } /* Azul neón */
+    33% { background-color: #00aaff; } /* Un azul más claro/cian */
+    66% { background-color: #00e0ff; } /* Azul neón */
+    100% { background-color: #00aaff; } /* Un azul más claro/cian */
+}
+
+
+/* --- Para Firefox (soporte limitado, solo color y ancho) --- */
+.content-body {
+    scrollbar-width: thin; /* 'auto' | 'thin' | 'none' */
+    scrollbar-color: #007bff #181818; /* color-del-pulgar (azul) color-del-track (oscuro) */
+    /* Asegúrate de que .content-body tenga 'overflow: auto;' o 'overflow-y: scroll;' para que el scroll aparezca */
+    /* ! Si tu .content-body ya tiene overflow, no lo repitas aquí ! */
+    /* max-height: calc(100vh - Xpx); */ /* Si necesitas limitar su altura y hacerlo scrollable */
+    /* overflow-y: auto; */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem; /* Tamaño de fuente más grande */
+    color: var(#f0f0f0); /* Asume una variable CSS para el color de texto claro */
+    margin-bottom: 50px; /* Espacio debajo del título */
+    position: relative;
+    letter-spacing: 3px;
+    padding-bottom: 15px; /* Espacio para un posible subrayado animado */
+         text-shadow:
+    3px 0 red,
+   -3px 0 cyan,
+    0 0 2px white;
+}
+
+.section-title::after { /* Opcional: un subrayado decorativo */
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px; /* Ancho del subrayado */
+    height: 4px; /* Grosor del subrayado */
+    background-color: var(--accent-color); /* Asume una variable para tu color de acento */
+    border-radius: 2px;
+}

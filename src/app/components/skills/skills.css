@@ -1,0 +1,138 @@
+
+/* --- Sección General de Habilidades --- */
+.skills-section {
+    padding: 60px 20px; /* Consistencia con otras secciones, si aplica */
+    max-width: 1000px; /* Limita el ancho para que las habilidades no se extiendan demasiado */
+    margin: 0 auto; /* Centra la sección en la página */
+    text-align: center; /* Centra el título y, si la lista es estrecha, los elementos */
+}
+
+/* El título de la sección (si usas la misma clase que en proyectos) */
+.section-title {
+    font-size: 2.8rem;
+    color: var(--text-color-light, #f0f0f0);
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+    /* Ajusta si necesitas un estilo diferente para el título de skills */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color, #007bff);
+    border-radius: 2px;
+}
+
+
+/* --- Lista de Habilidades --- */
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap; /* Esencial para que los ítems salten a la siguiente línea */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    gap: 25px; /* Espacio uniforme entre los elementos */
+    padding: 0;
+    margin: 0 auto; /* Centra la lista en sí misma si es más estrecha que el contenedor */
+}
+
+/* --- Cada Habilidad Individual --- */
+.skill-item {
+    background-color: var(--card-bg-color, #20202057); /* Fondo de la tarjeta, usa un color más oscuro que el general */
+    color: var(--text-color-light, #f0f0f0);
+    display: flex;
+    flex-direction: column; /* Icono encima del nombre */
+    align-items: center; /* Centra horizontalmente el contenido */
+    justify-content: center; /* Centra verticalmente el contenido si hay espacio extra */
+
+    width: 100px; /* Ancho fijo para cada tarjeta de habilidad */
+    height: 100px; /* Altura fija para cada tarjeta de habilidad */
+    
+    font-weight: 500;
+    padding: 10px; /* Espacio interno de la tarjeta */
+    border-radius: 10px; /* Bordes más suaves */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.028); /* Sombra suave */
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Transiciones para hover */
+    cursor: default; /* Indica que no es clickable, aunque puedes cambiarlo si cada skill tiene un tooltip/página */
+}
+
+.skill-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación al pasar el ratón */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada al elevarse */
+    background-color: rgba(0, 0, 0, 0.613);
+     backdrop-filter: blur(4px); 
+    color:  #fff
+}
+
+/* --- Icono de la Habilidad --- */
+.skill-icon {
+    width: 60px; /* Tamaño del contenedor del icono */
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px; /* Espacio entre el icono y el texto */
+    /* background-color: var(--icon-bg, #2a2a2a); /* Opcional: un fondo para el icono */
+    /* border-radius: 50%; /* Opcional: forma circular para el fondo del icono */
+}
+
+.skill-icon img {
+    width: 100%; /* La imagen ocupa el 100% del contenedor skill-icon */
+    height: 100%;
+    object-fit: contain; /* Asegura que la imagen se vea completa dentro de su contenedor */
+    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3)); /* Sombra para el icono, si quieres que resalte */
+}
+
+/* --- Nombre de la Habilidad --- */
+.skill-name {
+    font-size: 0.9rem; /* Tamaño de fuente para el nombre de la habilidad */
+    text-align: center;
+    line-height: 1.2; /* Espaciado entre líneas si el nombre es largo */
+    /* color: var(--text-color-light); /* Ya está en el skill-item, pero puedes anularlo aquí */
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 768px) {
+    .skills-list {
+        gap: 20px; /* Reduce un poco el espacio en pantallas más pequeñas */
+    }
+    .skill-item {
+        width: 90px; /* Ligeramente más pequeños */
+        height: 90px;
+        padding: 12px;
+    }
+    .skill-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 6px;
+    }
+    .skill-name {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-list {
+        gap: 15px; /* Más compacto en móviles muy pequeños */
+    }
+    .skill-item {
+        width: 80px; /* Aún más pequeños */
+        height: 80px;
+        padding: 10px;
+    }
+    .skill-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 5px;
+    }
+    .skill-name {
+        font-size: 0.8rem;
+    }
+}
+
