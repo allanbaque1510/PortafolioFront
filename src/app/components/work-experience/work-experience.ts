@@ -2,10 +2,11 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { PortafolioService } from '../../service/PortafolioService';
 import { ResponseWorkExperience } from '../../interfaces/response/response';
 import { Skills } from "../skills/skills";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-work-experience',
-  imports: [Skills],
+  imports: [CommonModule ,Skills],
   templateUrl: './work-experience.html',
   styleUrl: './work-experience.css'
 })

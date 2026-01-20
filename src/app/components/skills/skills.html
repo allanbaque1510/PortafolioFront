@@ -1,7 +1,8 @@
 <section class="skills-section">
     <ul class="skills-list">
         @for (skill of skills; track $index) {
-            <li [matTooltip]="skill.name" [matTooltipPosition]="'above'" class="skill-item"> <div class="skill-icon">
+            <li [matTooltip]="skill.name" [matTooltipPosition]="'above'" class="skill-item"> 
+                <div class="skill-icon">
                     <img [src]="'icon/skills/'+skill.icon+'.png'" [alt]="skill.name + ' icon'" loading="lazy" />
                 </div>
             </li>

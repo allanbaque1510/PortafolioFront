@@ -2,9 +2,10 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { PortafolioService } from '../../service/PortafolioService';
 import { MatIconModule } from '@angular/material/icon';
 import { ResponseProjects } from '../../interfaces/response/response';
+import { Modal } from '../modal/modal';
 @Component({
   selector: 'app-projects',
-  imports: [MatIconModule],
+  imports: [MatIconModule,Modal],
   templateUrl: './projects.html',
   styleUrl: './projects.css'
 })
@@ -12,6 +13,8 @@ export class Projects implements  OnInit,OnChanges {
   constructor(private portafolioService: PortafolioService) {}
   @Input() lang!: string; 
   data!: ResponseProjects;
+  projectModal:any;
+  showModal:boolean=false;
 
   ngOnInit() {
     this.getData();
@@ -29,6 +32,11 @@ export class Projects implements  OnInit,OnChanges {
       this.portafolioService.sections = data.sections;
       this.data = data;
     });
+  }
+  openModal(project:any){
+    console.log(project)
+    this.projectModal=project;
+    this.showModal=true;
   }
 
 }

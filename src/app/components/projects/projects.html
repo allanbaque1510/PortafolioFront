@@ -1,29 +1,16 @@
 
     <section class="projects-section content-body">
-        <h2 class="section-title">{{lang === 'en' ? 'My Projects' : 'Mis Proyectos'}}</h2> <div class="projects-grid">
+        <h2 class="section-title">{{lang === 'en' ? 'My Projects' : 'Mis Proyectos'}}</h2> 
+        
+        <app-modal [project]="projectModal" [lang]="lang" [(showModal)]="showModal"></app-modal>
+        <div class="projects-grid">
             @for (project of data.projects; track $index) {
-                <article class="project-card"> <div class="project-image-wrapper">
-                    <img [src]="project.image" [alt]="project.title" loading="lazy" /> </div>
-                    <div class="project-content">
-                        <h3 class="project-title">{{ project.title }}</h3>
-                        <p class="project-description">{{ project.description }}</p>
-                        <div class="project-links"> @if (project.url) { 
-                            <a [href]="project.url" target="_blank" rel="noopener noreferrer" class="project-link primary-link">
-                                <mat-icon style="margin-right: 5px;">launch</mat-icon> {{ lang === 'en' ? 'See Project' : 'Ver Proyecto' }} </a>
-                        }
-                        @if(project.first_url_gihub) {
-                            <a [href]="project.first_url_gihub" target="_blank" rel="noopener noreferrer" class="project-link secondary-link">
-                                <mat-icon style="margin-right: 5px;">code</mat-icon> {{ project.first_label  }} 
-                            </a>
-                        }
-                        @if(project.second_url_gihub) {
-                            <a [href]="project.second_url_gihub" target="_blank" rel="noopener noreferrer" class="project-link secondary-link">
-                                <mat-icon style="margin-right: 5px;">code</mat-icon> {{ project.second_label }} 
-                            </a>
-                        }
-                            </div>
-                        </div>
-                    </article>
-                }
-            </div>
-        </section>
+                <article class="project-card" (click)="openModal(project)"> 
+                    <div class="project-image-wrapper">
+                        <img [src]="project.image" [alt]="project.title" loading="lazy" /> 
+                    </div>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                </article>
+            }
+        </div>
+    </section>

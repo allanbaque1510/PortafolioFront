@@ -8,7 +8,9 @@ import { SocialMedia } from '../interfaces/social-media';
   providedIn: 'root'
 })
 export class PortafolioService {
-  url:string= 'http://localhost/portafolio/public/api';
+  // url:string= 'http://localhost/portafolio/public/api';
+  
+  url:string= 'https://backend.allancode.dev/public/api';
   constructor(private httpClient: HttpClient) { }
   private _sections!: Section[];
   private _currentSections: string = 'home';

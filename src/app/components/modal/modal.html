@@ -1,0 +1,51 @@
+@if (showModal) {
+    <div class="modal" (click)="closeModal()"> 
+        <div class="content-modal" (click)="$event.stopPropagation()">
+            <button class="close-button" (click)="closeModal()">
+                <mat-icon class="close-modal">close</mat-icon>
+            </button>
+            
+            <div class="modal-grid">
+                <div class="modal-left">
+                    <h3 class="modal-title">{{ project.title }}</h3>
+                    <div class="separador"></div>
+                    <div class="modal-image-container">
+                        <img [src]="project.image" [alt]="project.title" loading="lazy" /> 
+                    </div>
+                    <app-skills [skills]="project.skills" ></app-skills>
+                </div>
+                
+                <div class="modal-right">
+                    <div class="modal-description-wrapper">
+                        <p class="modal-description">{{ project.description }}</p>
+                    </div>
+                    
+                    @if (project.url || project.first_url_gihub || project.second_url_gihub) {
+                        <div class="project-links"> 
+                            @if (project.url) { 
+                                <a [href]="project.url" target="_blank" rel="noopener noreferrer" class="project-link primary-link">
+                                    <mat-icon>launch</mat-icon>
+                                    <span>{{ lang === 'en' ? 'See Project' : 'Ver Proyecto' }}</span>
+                                </a>
+                            }
+                            
+                            @if(project.first_url_gihub) {
+                                <a [href]="project.first_url_gihub" target="_blank" rel="noopener noreferrer" class="project-link secondary-link">
+                                    <mat-icon>code</mat-icon>
+                                    <span>{{ project.first_label }}</span>
+                                </a>
+                            }
+                            
+                            @if(project.second_url_gihub) {
+                                <a [href]="project.second_url_gihub" target="_blank" rel="noopener noreferrer" class="project-link secondary-link">
+                                    <mat-icon>code</mat-icon>
+                                    <span>{{ project.second_label }}</span>
+                                </a>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+}

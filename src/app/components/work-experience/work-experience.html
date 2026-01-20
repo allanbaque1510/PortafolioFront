@@ -11,9 +11,11 @@
                         <h2>{{ job.position }}</h2>
                         <h3>{{ job.company_name }} - {{ job.company_location }}</h3>
                         <p>
-                            <strong>{{ job.start_date }}</strong>
+                            <strong>{{ job.start_date | date:'MM/yyyy' }}</strong>
                             -
-                            <strong>{{ job.is_current ? 'Actualidad' : job.end_date }}</strong>
+                            <strong>
+                            {{ job.is_current ? 'Actualidad' : (job.end_date | date:'MM/yyyy') }}
+                            </strong>
                         </p>
                         
                         <!-- <a *ngIf="job.company_website" [href]="job.company_website" target="_blank">Sitio Web</a> -->
