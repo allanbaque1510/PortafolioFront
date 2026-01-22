@@ -54,9 +54,22 @@ html, body {
     z-index: 10;
 }
 .main-title {
+    margin: 0;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 4rem;
+    font-size: 5em;
     font-weight: 700;
+    color: var(--text-color-light); /* Color base del texto */
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 4px;
+    user-select: none;
+}
+
+.main-title-second {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 4em;
+    font-weight: 500;
     color: var(--text-color-light); /* Color base del texto */
     text-align: center;
     position: relative;
@@ -67,21 +80,10 @@ html, body {
 
 
 
-/* --- Títulos de Sección (About Me, Skills, Projects) --- */
-.section-title {
-    text-align: center;
-    font-size: 2.8rem;
-    color: var(--text-color-light);
-    margin-bottom: 50px;
-    position: relative;
-    padding-bottom: 15px; /* Espacio para la línea */
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
 /* Línea de Glitch debajo de los títulos de sección (se mantiene igual) */
 .section-title .glitch-line {
     content: '';
+    margin-bottom: 10px;
     position: absolute;
     left: 50%;
     bottom: 0;
@@ -152,14 +154,39 @@ html, body {
 }
 /* --- Sección "About Me" --- */
 .about-me-section {
-    padding: 150px 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    max-width: 100%;
     line-height: 1.8;
     font-size: 1.2rem;
     color: var(--text-color-secondary);
     text-align: center;
 }
+
+.content-data {
+    background-color: #090909a8; 
+    backdrop-filter: blur(20px);
+    color: var(--text-color-light, #f0f0f0);
+    border-radius: 12px; 
+    overflow: hidden; 
+    width: 90%; 
+    max-width: 900px; 
+    padding: 30px; 
+    display: flex;
+    flex-direction: column; 
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 8px 20px rgba(25, 25, 25, 0.7); 
+}
+
+.content-data:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 16px 40px rgba(255, 250, 255, 0.397), 0 0 50px rgba(0, 224, 255, 0.3);
+}
+
 
 .skills-section {
     padding: 100px 20px;

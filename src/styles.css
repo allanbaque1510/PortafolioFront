@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-    background-image: url("background.png");
+    background-image: url("background2.png");
     background-size: cover;
     color: white;
     margin: 0;
@@ -17,8 +17,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Para navegadores basados en WebKit (Chrome, Safari, Edge, Opera) */
 .content-body::-webkit-scrollbar {
-    width: 10px; /* Ancho de la barra de scroll vertical */
-    height: 10px; /* Altura de la barra de scroll horizontal */
+    width: 2px; /* Ancho de la barra de scroll vertical */
+    height: 2px; /* Altura de la barra de scroll horizontal */
 }
 
 /* El fondo de la barra de scroll (track) */
@@ -84,12 +84,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: var(#f0f0f0); /* Asume una variable CSS para el color de texto claro */
     margin-bottom: 50px; /* Espacio debajo del título */
     position: relative;
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     padding-bottom: 15px; /* Espacio para un posible subrayado animado */
          text-shadow:
-    3px 0 red,
-   -3px 0 cyan,
-    0 0 2px white;
+    3px 0 rgb(35, 150, 221),
+   -3px 0 rgb(0, 255, 255),
+    0 0 7px rgb(255, 255, 255);
 }
 
 .section-title::after { /* Opcional: un subrayado decorativo */

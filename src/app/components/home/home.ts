@@ -13,7 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 export class Home implements OnInit, OnChanges {
   @Input() lang!: string; 
   data!: ResponseHome;
-
+  textPresentation = 'allan@linux:~$ whoami';
+  textPresentationSecond = 'software engineer';
   private sectionIds = ['section1', 'section2', 'section3'];
   private currentIndex = 0;
   private isScrolling = false;

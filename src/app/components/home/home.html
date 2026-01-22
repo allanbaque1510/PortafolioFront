@@ -1,17 +1,21 @@
 <div class="content-body">
     @if (data) {
         <section id="section1" class="hero-section scroll-section">
-          <h1 class="main-title glitch-effect" [title]="'> ⚡ allan://root@dev_mode'">{{'> ⚡ allan://root@dev_mode'}}</h1>
+          <h2 class="main-title glitch-effect" [title]="textPresentation">{{textPresentation}}</h2>
+          <div></div>
+          <h2 class="main-title-second glitch-effect" [title]="textPresentationSecond">{{textPresentationSecond}}</h2>
+          
           <br>
           <mat-icon style="font-size: 8rem; width: 8rem; height: 8rem;" class="glitch-effect" >code_off</mat-icon>
         </section>
 
         <section id="section2" class="about-me-section scroll-section">
-            <h2 class="section-title presentation-title">
-                {{ data.presentation.title }}
-                <span class="glitch-line"></span>
-            </h2>
-            <p class="presentation-content">{{ data.presentation.content }}</p>
+            <div class="content-data">
+                <h2 class="section-title presentation-title">
+                    {{ data.presentation.title }}
+                </h2>
+                <p class="presentation-content">{{ data.presentation.content }}</p>
+            </div>
         </section>
 
         <section id="section3" class="skills-section scroll-section">
